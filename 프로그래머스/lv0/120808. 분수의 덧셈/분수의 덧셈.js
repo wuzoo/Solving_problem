@@ -1,6 +1,4 @@
 function solution(numer1, denom1, numer2, denom2) {
-  var answer = [];
-
   let finaldemon = denom1 * denom2;
   let finalnumer = numer1 * denom2 + numer2 * denom1;
 
