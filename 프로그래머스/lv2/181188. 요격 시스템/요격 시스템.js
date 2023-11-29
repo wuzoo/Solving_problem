@@ -18,5 +18,5 @@ function solution(targets) {
       }
     });
 
-  return answer + 1;
+  return 1 + answer;
 }
