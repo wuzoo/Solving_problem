@@ -2,6 +2,7 @@ function solution(targets) {
   let answer = 0;
 
   let [s, e] = [-1, 100000000];
+
   targets
     .sort((a, b) => a[0] - b[0])
     .map((target) => {
