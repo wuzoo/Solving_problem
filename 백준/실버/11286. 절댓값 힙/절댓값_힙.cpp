@@ -3,20 +3,20 @@
 #include <cmath>
 using namespace std;
 
-struct cmp {
-    bool operator()(pair<int, int> a, pair<int, int> b){ // {절댓값. 실제값}
-        if(a.first != b.first){
-            return a.first > b.first;
-        }
-        return a.second > b.second;
-    }
-};
+// struct cmp {
+//     bool operator()(pair<int, int> a, pair<int, int> b){ // {절댓값. 실제값}
+//         if(a.first != b.first){
+//             return a.first > b.first;
+//         }
+//         return a.second > b.second;
+//     }
+// };
 
 int main(){
     int n;
     cin >> n;
 
-    priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> pq;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     for(int i = 0; i < n; ++i){
         int x;
         cin >> x;
