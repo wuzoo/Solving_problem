@@ -23,12 +23,10 @@ void func(int n, int x, int y){
         }
         if(!can) break;
     }
-    if(can && first == 1){
-        blue++;
-        return;
-    }
-    if(can && first == 0){
-        white++;
+    if(can){
+        if(first) blue++;
+        else white++;
+
         return;
     }
     
