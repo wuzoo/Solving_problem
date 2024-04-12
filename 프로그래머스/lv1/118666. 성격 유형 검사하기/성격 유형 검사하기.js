@@ -18,3 +18,26 @@ function solution(survey, choices) {
 
   return answer;
 }
+
+/** 다시 풀기 코드
+ * function solution(survey, choices) {
+    var answer = '';
+    
+    const index = ["RT", "CF", "JM", "AN"];
+    const score = new Map();
+    index.forEach(str => str.split("").forEach(char => score.set(char, 0)));
+    
+    survey.forEach((str, idx) => {
+        const [left, right] = str.split("");
+        
+        score.set(choices[idx] < 4 ? left : right, score.get(choices[idx] < 4 ? left : right) + Math.abs((4 - choices[idx])));
+    })
+    
+    index.forEach(str => {
+        const [left, right] = str.split("");
+        answer += score.get(left) >= score.get(right) ? left : right;
+    })
+    
+    return answer;
+}
+ */
