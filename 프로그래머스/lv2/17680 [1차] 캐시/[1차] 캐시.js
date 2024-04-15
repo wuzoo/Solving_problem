@@ -1,25 +1,23 @@
 function solution(cacheSize, cities) {
-  const list = [];
-  let time = 0;
+  var answer = 0;
 
-  if (cacheSize === 0) {
-    return cities.length * 5;
-  }
+  if (cacheSize === 0) return cities.length * 5;
 
-  cities.forEach((item) => {
-    if (list.includes(item.toUpperCase())) {
-      const idx = list.findIndex((city) => city === item.toUpperCase());
-      list.splice(idx, 1);
-      list.push(item.toUpperCase());
-      time++;
+  const cachelist = [];
+  cities = cities.map((str) => str.toUpperCase());
+
+  cities.forEach((str) => {
+    if (cachelist.includes(str)) {
+      const originIdx = cachelist.indexOf(str);
+      cachelist.splice(originIdx, 1);
+      cachelist.push(str);
+      answer++;
     } else {
-      if (list.length === cacheSize) {
-        list.splice(0, 1);
-      }
-      list.push(item.toUpperCase());
-      time += 5;
+      if (cachelist.length === cacheSize) cachelist.shift();
+      cachelist.push(str);
+      answer += 5;
     }
   });
 
-  return time;
+  return answer;
 }
