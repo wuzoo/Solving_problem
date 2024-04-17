@@ -1,26 +1,22 @@
 function solution(record) {
-  var answer = [];
+  const answer = [];
+  const userMap = new Map();
 
-  const map = new Map();
+  record.forEach((str) => {
+    const [flag, id, name] = str.split(" ");
 
-  record.forEach((item) => {
-    const command = item.split(" ")[0];
-    const id = item.split(" ")[1];
-
-    if (command === "Enter" || command === "Change") {
-      const name = item.split(" ")[2];
-      map.set(id, name);
+    if (flag === "Enter" || flag === "Change") {
+      userMap.set(id, name);
     }
   });
 
-  record.forEach((item) => {
-    const command = item.split(" ")[0];
-    const id = item.split(" ")[1];
+  record.forEach((str) => {
+    const [flag, id, name] = str.split(" ");
 
-    if (command === "Enter") {
-      answer.push(map.get(id) + "님이 들어왔습니다.");
-    } else if (command === "Leave") {
-      answer.push(map.get(id) + "님이 나갔습니다.");
+    if (flag === "Enter") {
+      answer.push(`${userMap.get(id)}님이 들어왔습니다.`);
+    } else if (flag === "Leave") {
+      answer.push(`${userMap.get(id)}님이 나갔습니다.`);
     }
   });
 
