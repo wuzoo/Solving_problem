@@ -1,32 +1,28 @@
 function solution(storey) {
-  var answer = 0;
-
+  let answer = 0;
   const arr = storey
     .toString()
     .split("")
     .reverse()
     .map((str) => +str);
 
-  for (let i = 0; i < arr.length; ++i) {
-    if (arr[i] < 5) {
-      answer += arr[i];
-    } else if (arr[i] > 5) {
-      answer += 10 - arr[i];
-      if (i + 1 < arr.length) {
-        arr[i + 1]++;
+  arr.forEach((num, idx) => {
+    if (num < 5) {
+      answer += num;
+    } else if (num > 5) {
+      answer += 10 - num;
+      if (idx + 1 < arr.length) {
+        arr[idx + 1]++;
       } else {
         answer++;
       }
-    } else if (arr[i] === 5) {
-      answer += arr[i];
-
-      if (arr[i + 1] >= 5 && i + 1 < arr.length) {
-        arr[i + 1]++;
+    } else if (num === 5) {
+      answer += num;
+      if (idx + 1 < arr.length && arr[idx + 1] >= 5) {
+        arr[idx + 1]++;
       }
-    } else {
-      return -1;
     }
-  }
+  });
 
   return answer;
 }
