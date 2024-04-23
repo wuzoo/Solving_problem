@@ -1,15 +1,16 @@
 function solution(n) {
-  const st = [];
+  const answer = [];
 
-  while (n > 0) {
+  while (n > 3) {
     if (n % 3 === 0) {
-      st.push(4);
-      n = Math.floor(n / 3) - 1;
+      answer.push(4);
+      n = n / 3 - 1;
     } else {
-      st.push(n % 3);
+      answer.push(n % 3);
       n = Math.floor(n / 3);
     }
   }
+  answer.push(n % 3 === 0 ? 4 : n % 3);
 
-  return st.reverse().join("");
+  return answer.reverse().join("");
 }
