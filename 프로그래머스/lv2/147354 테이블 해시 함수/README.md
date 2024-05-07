@@ -36,7 +36,7 @@
 - 1 ≤ data[i][j] ≤ 1,000,000
   - data[i][j]는 i + 1 번째 튜플의 j + 1 번째 컬럼의 값을 의미합니다.
 - 1 ≤ col ≤ data의 원소의 길이
-- 1 ≤ row_begin ≤ row_end ≤ data의 길이
+- 1 ≤ `row_begin` ≤ row_end ≤ data의 길이
 
 #### 입출력 예제
 
