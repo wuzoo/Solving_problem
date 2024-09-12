@@ -24,14 +24,5 @@ while (T--) {
       Math.max(dp[i - 2][1], dp[i - 2][2], dp[i - 1][1]) + arr[1][i - 1];
   }
 
-  let max = 0;
-  for (let i = 1; i <= N; ++i) {
-    for (let j = 1; j <= 2; ++j) {
-      if (dp[i][j] > max) {
-        max = dp[i][j];
-      }
-    }
-  }
-
-  console.log(max);
+  console.log(Math.max(dp[N - 1][1], dp[N - 1][2]));
 }
